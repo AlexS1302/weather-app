@@ -1,0 +1,24 @@
+
+.grid-container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-areas: 
+        "header"
+        "today-forecast"
+        "weekly-forecast";
+}
+
+header {
+    grid-area: header;
+}
+
+.today-forecast {
+    grid-area: today-forecast;
+}
+
+.weekly-forecast {
+    grid-area: weekly-forecast;
+}
+
