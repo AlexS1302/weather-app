@@ -10,6 +10,8 @@
         "weekly-forecast";
 }
 
+/* Header */
+
 header {
     grid-area: header;
     display: grid;
@@ -18,12 +20,9 @@ header {
     background-color: #f5f5f5;
 }
 
-header > * {
-    margin-left: 3rem;
-}
-
 header h1 {
     font-size: 1.8rem;
+    margin-left: 3rem;
 }
 
 #search {
@@ -47,7 +46,8 @@ header h1 {
     border: none;
     background-size: 300% 100%;
     border-radius: 30px;
-    transition: all 0.5s ease-in-out;
+    background-position: 0 0;
+    transition: background-position 0.5s ease-in-out;
 }
   
 #search-btn:hover {
@@ -63,6 +63,7 @@ header h1 {
     box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
 }
   
+/* Others */
 
 .today-forecast {
     grid-area: today-forecast;
