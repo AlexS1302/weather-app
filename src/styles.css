@@ -3,7 +3,7 @@
     display: grid;
     height: 100vh;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: auto 1.5fr 1fr;
     grid-template-areas: 
         "header"
         "today-forecast"
@@ -21,8 +21,8 @@ header {
 }
 
 header h1 {
+    text-align: center;
     font-size: 1.8rem;
-    margin-left: 3rem;
 }
 
 #search {
@@ -30,7 +30,7 @@ header h1 {
     padding: 7px;
     border-radius: 10px;
     border: 1px solid white;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 #search:focus {
@@ -63,13 +63,43 @@ header h1 {
     box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
 }
   
-/* Others */
+/* Today's Forecast */
 
 .today-forecast {
-    grid-area: today-forecast;
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
 }
+
+.left-card-section {
+    background-color: white;
+    padding: 2rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+
+.right-card-section {
+    background-color: white;
+}
+
+/* Others */
 
 .weekly-forecast {
     grid-area: weekly-forecast;
+    background-color: #f5f5f5;
 }
 
