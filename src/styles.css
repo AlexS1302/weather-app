@@ -94,6 +94,10 @@ header h1 {
 
 .right-card-section {
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
 }
 
 /* Others */
@@ -101,5 +105,9 @@ header h1 {
 .weekly-forecast {
     grid-area: weekly-forecast;
     background-color: #f5f5f5;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
 }
+
 
