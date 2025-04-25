@@ -70,3 +70,5 @@ function processData(parsedJSON) {
         },
     };
 }
+
+export {changeUnit, changeLocation, fetchWeather};
