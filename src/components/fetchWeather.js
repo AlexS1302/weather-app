@@ -31,7 +31,7 @@ async function fetchWeather() {
         const processedData = processData(weatherData);
         return processedData;
     } catch (e) {
-        console.log("Error:", e);
+        console.error("Failed to fetch weather info:", e);
     }
 }
 
@@ -43,17 +43,18 @@ function processData(parsedJSON) {
     const jsonObj = parsedJSON;
 
     const requiredData = {
-        address: jsonObj.resolvedAddress,
-        get currentTime() {
-            return new TZDate(new Date(), "Europe/London");
+        general: {
+            address: jsonObj.resolvedAddress,
+            get currentTime() {
+                return new TZDate(new Date(), "Europe/London");
+            },
+            get time() {
+                return format(this.currentTime, "HH:mm:ss");
+            },
+            get date() {
+                return format(this.currentTime, "do MMMM yyyy");
+            },
         },
-        get time() {
-            return format(this.currentTime, "HH:mm:ss");
-        },
-        get date() {
-            return format(this.currentTime, "do MMMM yyyy");
-        },
-
         timezone: jsonObj.timezone,
         current: {
             condition: jsonObj.currentConditions.conditions,
@@ -69,6 +70,8 @@ function processData(parsedJSON) {
             windSpeed: jsonObj.currentConditions.windspeed,
         },
     };
+
+    return requiredData;
 }
 
 export {changeUnit, changeLocation, fetchWeather};

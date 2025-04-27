@@ -1,8 +1,6 @@
 import "modern-normalize/modern-normalize.css";
 import "./styles.css";
+import { updateWeatherInfo } from "./components/display";
 
-function test() {
-  console.log("Hello");
-}
+updateWeatherInfo();
 
-test();
