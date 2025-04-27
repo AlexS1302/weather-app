@@ -3,8 +3,8 @@ import { changeUnit, changeLocation, fetchWeather } from "./fetchWeather";
 function setLocation() {
     const searchBar = document.getElementById("search");
     const searchString = searchBar.value;
-    searchBar.value = "";
     changeLocation(searchString);
+    searchBar.value = "";
 }
 
 function setUnitGroup() {
@@ -22,10 +22,17 @@ async function updateWeatherInfo() {
         const date = document.querySelector(".date");
         date.textContent = weatherData.general.date;
 
-        
     } catch (e) {
         console.log("Failed to update weather info:", e);
     }
 }
+
+// Event Listeners
+const searchBtn = document.getElementById("search-btn");
+searchBtn.addEventListener("click", (event) => {
+    event.preventDefault;
+    setLocation();
+    updateWeatherInfo();
+});
 
 export {updateWeatherInfo};
