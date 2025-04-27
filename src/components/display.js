@@ -21,6 +21,8 @@ async function updateWeatherInfo() {
 
         const date = document.querySelector(".date");
         date.textContent = weatherData.general.date;
+
+        
     } catch (e) {
         console.log("Failed to update weather info:", e);
     }
