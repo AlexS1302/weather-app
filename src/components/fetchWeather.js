@@ -67,6 +67,8 @@ function processData(weatherObj) {
             temperature: weatherObj.currentConditions.temp,
             windSpeed: weatherObj.currentConditions.windspeed,
             precipitation: weatherObj.currentConditions.precipprob,
+            sunrise: weatherObj.currentConditions.sunrise,
+            sunset: weatherObj.currentConditions.sunset,
         },
     };
 

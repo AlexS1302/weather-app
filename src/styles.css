@@ -106,7 +106,7 @@ header h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 3rem 1rem 3rem;
+    padding: 2rem 4rem 1rem 4rem;
     font-weight: 500;
     font-size: 1.2rem;
 }
@@ -141,12 +141,12 @@ header h1 {
     padding-right: 3rem;
 }
 
-.wind-speed-icon, .humidity-icon, .precipitation-icon {
+.wind-speed-icon, .humidity-icon, .precipitation-icon, .sunrise-icon, .sunset-icon {
     width: 80px;
     height: 80px;
 }
 
-.humidity, .wind-speed, .precipitation {
+.humidity, .wind-speed, .precipitation, .sunrise, .sunset {
     display: flex;
     align-items: center;
     font-size: 1.3rem;

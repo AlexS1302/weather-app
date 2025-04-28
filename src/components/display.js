@@ -2,6 +2,8 @@ import { changeUnit, changeLocation, fetchWeather } from "./fetchWeather";
 import humidityIconPath from "../assets/icons/humidity.svg";
 import windSpeedPath from "../assets/icons/windsock.svg";
 import precipitationIconPath from "../assets/icons/umbrella.svg";
+import sunriseIconPath from "../assets/icons/sunrise.svg"
+import sunsetIconPath from "../assets/icons/sunset.svg"
 
 async function updateWeatherInfo() {
     try {
@@ -14,12 +16,15 @@ async function updateWeatherInfo() {
 }
 
 async function updateTodayForecast(weatherData) {
+
+    // Card header
     const location = document.querySelector(".location");
     location.textContent = weatherData.general.address;
 
     const date = document.querySelector(".date");
     date.textContent = weatherData.general.date;
 
+    // Weather details
     const weatherIcon = document.querySelector(".weather-icon");
     const iconPath = await setWeatherIcon(weatherData.current.weatherIcon);
     weatherIcon.src = iconPath;
@@ -33,6 +38,7 @@ async function updateTodayForecast(weatherData) {
     const weatherCondition = document.querySelector(".weather-condition");
     weatherCondition.textContent = weatherData.current.condition;
 
+    // Weather other
     const precipitationIcon = document.querySelector(".precipitation-icon");
     precipitationIcon.src = precipitationIconPath;
     const precipitation = document.querySelector(".precipitation-value");
@@ -47,6 +53,16 @@ async function updateTodayForecast(weatherData) {
     windSpeedIcon.src = windSpeedPath;
     const windSpeed = document.querySelector(".wind-speed-value");
     windSpeed.textContent = weatherData.current.windSpeed;
+
+    const sunriseIcon = document.querySelector(".sunrise-icon");
+    sunriseIcon.src = sunriseIconPath;
+    const sunrise = document.querySelector(".sunrise-time");
+    sunrise.textContent = weatherData.current.sunrise;
+
+    const sunsetIcon = document.querySelector(".sunset-icon");
+    sunsetIcon.src = sunsetIconPath;
+    const sunset = document.querySelector(".sunset-time");
+    sunset.textContent = weatherData.current.sunset;
 }
 
 
