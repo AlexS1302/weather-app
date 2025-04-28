@@ -26,6 +26,10 @@ header h1 {
     padding-inline: 5px;
 }
 
+.search-location {
+    text-align: center;
+}
+
 #search {
     width: 60%;
     padding: 10px;
@@ -64,6 +68,12 @@ header h1 {
     box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
 }
 
+.dropdown-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .dropdown-menu label {
     font-weight: 500;
 }
@@ -88,18 +98,8 @@ header h1 {
     grid-template-rows: auto 1fr;
 }
 
-.card-sections {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-}
-
-.left-card-section {
-    background-color: white;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
+.weather-condition {
+    font-size: 2rem;
 }
 
 .card-header {
@@ -112,48 +112,44 @@ header h1 {
 }
 
 .temperature {
-    font-size: 3rem;
+    font-size: 4rem;
     color: #25aae1;
 }
 
 .card-body {
     display: flex;
     align-items: center;
+    padding-right: 100px;
+    justify-content: center;
+    background-color: white;
 }
 
 .feels-like {
     padding-top: 0.5rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     opacity: 0.8;
 }
 
 .weather-icon {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
 }
 .weather-details {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-right: 3rem;
 }
 
-.right-card-section {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
+.wind-speed-icon, .humidity-icon, .precipitation-icon {
+    width: 80px;
+    height: 80px;
 }
 
-.wind-speed-icon, .humidity-icon {
-    width: 100px;
-    height: 100px;
-}
-
-.humidity-details, .wind-speed-details {
+.humidity, .wind-speed, .precipitation {
     display: flex;
     align-items: center;
+    font-size: 1.3rem;
 }
 
 /* Others */

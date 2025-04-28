@@ -1,6 +1,7 @@
 import { changeUnit, changeLocation, fetchWeather } from "./fetchWeather";
 import humidityIconPath from "../assets/icons/humidity.svg";
 import windSpeedPath from "../assets/icons/windsock.svg";
+import precipitationIconPath from "../assets/icons/umbrella.svg";
 
 async function updateWeatherInfo() {
     try {
@@ -13,7 +14,6 @@ async function updateWeatherInfo() {
 }
 
 async function updateTodayForecast(weatherData) {
-    // Left card section
     const location = document.querySelector(".location");
     location.textContent = weatherData.general.address;
 
@@ -33,18 +33,19 @@ async function updateTodayForecast(weatherData) {
     const weatherCondition = document.querySelector(".weather-condition");
     weatherCondition.textContent = weatherData.current.condition;
 
-    // const weatherDescription = document.querySelector(".weather-description");
-    // weatherDescription.textContent = weatherData.current.description;
+    const precipitationIcon = document.querySelector(".precipitation-icon");
+    precipitationIcon.src = precipitationIconPath;
+    const precipitation = document.querySelector(".precipitation-value");
+    precipitation.textContent = weatherData.current.precipitation + "%";
 
-    // Right card section
     const humidityIcon = document.querySelector(".humidity-icon");
     humidityIcon.src = humidityIconPath;
-    const humidity = document.querySelector(".humidity");
-    humidity.textContent = weatherData.current.humidity;
+    const humidity = document.querySelector(".humidity-value");
+    humidity.textContent = weatherData.current.humidity + "%";
     
     const windSpeedIcon = document.querySelector(".wind-speed-icon");
     windSpeedIcon.src = windSpeedPath;
-    const windSpeed = document.querySelector(".wind-speed");
+    const windSpeed = document.querySelector(".wind-speed-value");
     windSpeed.textContent = weatherData.current.windSpeed;
 }
 
