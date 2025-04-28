@@ -108,11 +108,23 @@ header h1 {
     align-items: center;
     padding: 2rem 3rem 1rem 3rem;
     font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.temperature {
+    font-size: 3rem;
+    color: #25aae1;
 }
 
 .card-body {
     display: flex;
     align-items: center;
+}
+
+.feels-like {
+    padding-top: 0.5rem;
+    font-size: 1.1rem;
+    opacity: 0.8;
 }
 
 .weather-icon {

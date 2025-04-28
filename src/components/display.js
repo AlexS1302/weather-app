@@ -25,10 +25,16 @@ async function updateTodayForecast(weatherData) {
     weatherIcon.src = iconPath;
 
     const temperature = document.querySelector(".temperature");
-    temperature.textContent = weatherData.current.temperature;
+    temperature.textContent = weatherData.current.temperature + "°";
 
-    const weatherDescription = document.querySelector(".weather-desc");
-    weatherDescription.textContent = weatherData.current.condition;
+    const feelsLike = document.querySelector(".feels-like");
+    feelsLike.textContent = "Feels like: " + weatherData.current.feelsLike + "°";
+
+    const weatherCondition = document.querySelector(".weather-condition");
+    weatherCondition.textContent = weatherData.current.condition;
+
+    // const weatherDescription = document.querySelector(".weather-description");
+    // weatherDescription.textContent = weatherData.current.description;
 
     // Right card section
     const humidityIcon = document.querySelector(".humidity-icon");

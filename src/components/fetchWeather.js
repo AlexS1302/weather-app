@@ -66,6 +66,7 @@ function processData(weatherObj) {
             weatherIcon: weatherObj.currentConditions.icon,
             temperature: weatherObj.currentConditions.temp,
             windSpeed: weatherObj.currentConditions.windspeed,
+            description: weatherObj.description,
         },
     };
 
