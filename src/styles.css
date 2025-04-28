@@ -3,7 +3,7 @@
     display: grid;
     height: 100vh;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1.5fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
     grid-template-areas: 
         "header"
         "today-forecast"
@@ -85,35 +85,44 @@ header h1 {
 
 .today-forecast {
     display: grid;
-    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: auto 1fr;
+}
+
+.card-sections {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
 }
 
 .left-card-section {
     background-color: white;
-    padding: 2rem;
     font-weight: 500;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
 }
 
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10%;
+    padding: 2rem 3rem 1rem 3rem;
+    font-weight: 500;
 }
 
 .card-body {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 90%;
-    font-size: 2rem;
 }
 
 .weather-icon {
     width: 250px;
     height: 250px;
+}
+.weather-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .right-card-section {
