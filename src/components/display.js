@@ -1,4 +1,6 @@
 import { changeUnit, changeLocation, fetchWeather } from "./fetchWeather";
+import humidityIconPath from "../assets/icons/humidity.svg";
+import windSpeedPath from "../assets/icons/windsock.svg";
 
 async function updateWeatherInfo() {
     try {
@@ -11,7 +13,6 @@ async function updateWeatherInfo() {
 }
 
 async function updateTodayForecast(weatherData) {
-
     // Left card section
     const location = document.querySelector(".location");
     location.textContent = weatherData.general.address;
@@ -30,7 +31,15 @@ async function updateTodayForecast(weatherData) {
     weatherDescription.textContent = weatherData.current.condition;
 
     // Right card section
+    const humidityIcon = document.querySelector(".humidity-icon");
+    humidityIcon.src = humidityIconPath;
+    const humidity = document.querySelector(".humidity");
+    humidity.textContent = weatherData.current.humidity;
     
+    const windSpeedIcon = document.querySelector(".wind-speed-icon");
+    windSpeedIcon.src = windSpeedPath;
+    const windSpeed = document.querySelector(".wind-speed");
+    windSpeed.textContent = weatherData.current.windSpeed;
 }
 
 
