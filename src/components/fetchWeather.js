@@ -1,5 +1,5 @@
 import { TZDate } from "@date-fns/tz";
-import { format, fromUnixTime } from "date-fns";
+import { format } from "date-fns";
 
 // API URL
 const apiObj = {
@@ -47,11 +47,17 @@ function processData(weatherObj) {
                 return new TZDate(new Date(), weatherObj.timezone);
             },
             get time() {
-                return format(this.currentTime, "HH:mm:ss");
+                return format(this.currentTime, "HH:mm");
             },
             get date() {
                 return format(this.currentTime, "do MMMM yyyy");
             },
+            get sunriseTime() {
+                return weatherObj.currentConditions.sunrise.slice(0, 5);
+            },
+            get sunsetTime() {
+                return weatherObj.currentConditions.sunset.slice(0, 5);
+            }
         },
         timezone: weatherObj.timezone,
         current: {

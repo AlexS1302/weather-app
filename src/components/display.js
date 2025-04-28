@@ -61,12 +61,12 @@ async function updateTodayForecast(weatherData) {
     const sunriseIcon = document.querySelector(".sunrise-icon");
     sunriseIcon.src = sunriseIconPath;
     const sunrise = document.querySelector(".sunrise-time");
-    sunrise.textContent = weatherData.current.sunrise;
+    sunrise.textContent = weatherData.general.sunriseTime;
 
     const sunsetIcon = document.querySelector(".sunset-icon");
     sunsetIcon.src = sunsetIconPath;
     const sunset = document.querySelector(".sunset-time");
-    sunset.textContent = weatherData.current.sunset;
+    sunset.textContent = weatherData.general.sunsetTime;
 }
 
 
