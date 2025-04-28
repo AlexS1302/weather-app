@@ -44,7 +44,7 @@ function processData(weatherObj) {
         general: {
             address: weatherObj.resolvedAddress,
             get currentTime() {
-                return new TZDate(new Date(), "Europe/London");
+                return new TZDate(new Date(), weatherObj.timezone);
             },
             get time() {
                 return format(this.currentTime, "HH:mm:ss");
@@ -57,10 +57,6 @@ function processData(weatherObj) {
         current: {
             condition: weatherObj.currentConditions.conditions,
             time: weatherObj.currentConditions.datetime,
-            localisedDateTime: new TZDate(
-                fromUnixTime(weatherObj.currentConditions.datetimeEpoch),
-                weatherObj.timezone,
-            ),
             feelsLike: weatherObj.currentConditions.feelslike,
             humidity: weatherObj.currentConditions.humidity,
             weatherIcon: weatherObj.currentConditions.icon,

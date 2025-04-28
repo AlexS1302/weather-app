@@ -111,6 +111,12 @@ header h1 {
     font-size: 1.2rem;
 }
 
+.date-time-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .temperature {
     font-size: 4rem;
     color: #25aae1;
@@ -142,14 +148,14 @@ header h1 {
 }
 
 .wind-speed-icon, .humidity-icon, .precipitation-icon, .sunrise-icon, .sunset-icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
 }
 
 .humidity, .wind-speed, .precipitation, .sunrise, .sunset {
     display: flex;
     align-items: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 /* Others */

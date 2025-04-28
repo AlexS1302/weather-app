@@ -24,6 +24,10 @@ async function updateTodayForecast(weatherData) {
     const date = document.querySelector(".date");
     date.textContent = weatherData.general.date;
 
+    const time = document.querySelector(".time");
+    time.textContent = weatherData.general.time;
+
+
     // Weather details
     const weatherIcon = document.querySelector(".weather-icon");
     const iconPath = await setWeatherIcon(weatherData.current.weatherIcon);
@@ -91,5 +95,11 @@ async function setWeatherIcon(iconName) {
     const iconPromise = await import(`../assets/icons/${iconName}.svg`);
     return iconPromise.default;
 }
+
+function setTime() {
+    
+    
+}
+
 
 export {updateWeatherInfo};
