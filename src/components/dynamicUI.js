@@ -14,8 +14,12 @@ function createElement(tag, classes = [], text = "", datasets = {}) {
 
 // Append the element to a container
 function appendToContainer(parent, element) {
-    const container = document.querySelector(parent);
-    if (container) container.appendChild(element);
+    const container = typeof parent === "string" ? document.querySelector(parent) : parent;
+    if (container) {
+        container.appendChild(element);
+    } else {
+        console.warn("Parent container not found/invalid")
+    }
 }
 
 export {createElement, appendToContainer}

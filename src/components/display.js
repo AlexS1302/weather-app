@@ -4,14 +4,16 @@ import windSpeedPath from "../assets/icons/windsock.svg";
 import precipitationIconPath from "../assets/icons/umbrella.svg";
 import sunriseIconPath from "../assets/icons/sunrise.svg"
 import sunsetIconPath from "../assets/icons/sunset.svg"
+import { appendToContainer, createElement } from "./dynamicUI";
 
 async function updateWeatherInfo() {
     try {
         const weatherData = await fetchWeather();
         updateTodayForecast(weatherData);
+        updateWeeklyForecast(weatherData);
 
     } catch (e) {
-        console.log("Failed to update weather info:", e);
+        console.error("Failed to update weather info:", e);
     }
 }
 
@@ -69,7 +71,19 @@ async function updateTodayForecast(weatherData) {
 }
 
 function updateWeeklyForecast(weatherData) {
-    
+    const nextDays = weatherData.nextDays;
+    nextDays.forEach(item => {
+        const container = createElement("div", ["weekly-item-container"]);
+        const day = createElement("h4", ["weekly-forecast-day"], item.day);
+        const temp = createElement("div", ["weekly-forecast-temp"], item.temperature);
+        const condition = createElement("div", ["weekly-forecast-condition"], item.condition);
+
+        appendToContainer(container, day);
+        appendToContainer(container, temp);
+        appendToContainer(container, condition);
+
+        appendToContainer(".weekly-forecast", container);
+    });
 }
 
 // Event Listeners
