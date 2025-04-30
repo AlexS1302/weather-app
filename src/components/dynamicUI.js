@@ -35,18 +35,22 @@ async function updateTodayForecast(weatherData) {
 }
 
 function updateWeeklyForecast(weatherData) {
+    const forecastContainer = document.querySelector(".weekly-forecast");
+
+    forecastContainer.innerHTML = "";
+
     const nextDays = weatherData.nextDays;
     nextDays.forEach(item => {
-        const container = createElement("div", ["weekly-item-container"]);
+        const itemContainer = createElement("div", ["weekly-item-container"]);
         const day = createElement("h4", ["weekly-forecast-day"], item.day);
         const temp = createElement("div", ["weekly-forecast-temp"], item.temperature);
         const condition = createElement("div", ["weekly-forecast-condition"], item.condition);
 
-        appendToContainer(container, day);
-        appendToContainer(container, temp);
-        appendToContainer(container, condition);
+        appendToContainer(itemContainer, day);
+        appendToContainer(itemContainer, temp);
+        appendToContainer(itemContainer, condition);
 
-        appendToContainer(".weekly-forecast", container);
+        appendToContainer(forecastContainer, itemContainer);
     });
 }
 

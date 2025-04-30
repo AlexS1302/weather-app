@@ -20,6 +20,12 @@ searchBtn.addEventListener("click", (event) => {
     updateWeatherInfo();
 });
 
+const dropdownMenu = document.querySelector(".dropdown-menu");
+dropdownMenu.addEventListener("change", () => {
+    setUnitGroup();
+    updateWeatherInfo();
+});
+
 // Helper Functions
 function setLocation() {
     const searchBar = document.getElementById("search");
