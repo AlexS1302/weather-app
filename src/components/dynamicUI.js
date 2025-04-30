@@ -2,7 +2,7 @@
 // Create an element
 function createElement(tag, classes = [], text = "", datasets = {}) {
     const element = document.createElement(tag);
-    element.classList.add(...classes),
+    element.classList.add(...classes);
     element.textContent = text;
 
     for (const [key, value] of Object.entries(datasets)) {
@@ -10,6 +10,20 @@ function createElement(tag, classes = [], text = "", datasets = {}) {
     }
 
     return element;
+}
+
+// Update an element
+function updateElement(selector, attribute, value) {
+    const element = document.querySelector(selector);
+    if (element) {
+        if (attribute in element) {
+            element[attribute] = value;
+        } else {
+            element.setAttribute(attribute, value);
+        }
+    } else {
+        console.warn(`Element not found for selector: ${selector}`);
+    }
 }
 
 // Append the element to a container
@@ -22,6 +36,6 @@ function appendToContainer(parent, element) {
     }
 }
 
-export {createElement, appendToContainer}
+export {createElement, updateElement, appendToContainer}
 
 
