@@ -4,7 +4,7 @@ import windSpeedPath from "../assets/icons/windsock.svg";
 import precipitationIconPath from "../assets/icons/umbrella.svg";
 import sunriseIconPath from "../assets/icons/sunrise.svg"
 import sunsetIconPath from "../assets/icons/sunset.svg"
-import { appendToContainer, createElement } from "./dynamicUI";
+import { appendToContainer, createElement, updateElement } from "./dynamicUI";
 
 async function updateWeatherInfo() {
     try {
@@ -19,55 +19,32 @@ async function updateWeatherInfo() {
 
 async function updateTodayForecast(weatherData) {
     // Card header
-    const location = document.querySelector(".location");
-    location.textContent = weatherData.general.address;
-
-    const date = document.querySelector(".date");
-    date.textContent = weatherData.general.date;
-
-    const time = document.querySelector(".time");
-    time.textContent = weatherData.general.time;
-
+    updateElement(".location", "textContent", weatherData.general.address);
+    updateElement(".date", "textContent", weatherData.general.date);
+    updateElement(".time", "textContent", weatherData.general.time);
 
     // Weather details
-    const weatherIcon = document.querySelector(".weather-icon");
     const iconPath = await setWeatherIcon(weatherData.current.weatherIcon);
-    weatherIcon.src = iconPath;
-
-    const temperature = document.querySelector(".temperature");
-    temperature.textContent = weatherData.current.temperature + "°";
-
-    const feelsLike = document.querySelector(".feels-like");
-    feelsLike.textContent = "Feels like: " + weatherData.current.feelsLike + "°";
-
-    const weatherCondition = document.querySelector(".weather-condition");
-    weatherCondition.textContent = weatherData.current.condition;
+    updateElement(".weather-icon", "src", iconPath);
+    updateElement(".temperature", "textContent", weatherData.current.temperature + "°");
+    updateElement(".feels-like", "textContent", "Feels like: " + weatherData.current.feelsLike + "°");
+    updateElement(".weather-condition", "textContent", weatherData.current.condition);
 
     // Weather other
-    const precipitationIcon = document.querySelector(".precipitation-icon");
-    precipitationIcon.src = precipitationIconPath;
-    const precipitation = document.querySelector(".precipitation-value");
-    precipitation.textContent = weatherData.current.precipitation + "%";
+    updateElement(".precipitation-icon", "src", precipitationIconPath);
+    updateElement(".precipitation-value", "textContent", weatherData.current.precipitation + "%");
 
-    const humidityIcon = document.querySelector(".humidity-icon");
-    humidityIcon.src = humidityIconPath;
-    const humidity = document.querySelector(".humidity-value");
-    humidity.textContent = weatherData.current.humidity + "%";
-    
-    const windSpeedIcon = document.querySelector(".wind-speed-icon");
-    windSpeedIcon.src = windSpeedPath;
-    const windSpeed = document.querySelector(".wind-speed-value");
-    windSpeed.textContent = weatherData.current.windSpeed;
+    updateElement(".humidity-icon", "src", humidityIconPath);
+    updateElement(".humidity-value", "textContent", weatherData.current.humidity + "%");
 
-    const sunriseIcon = document.querySelector(".sunrise-icon");
-    sunriseIcon.src = sunriseIconPath;
-    const sunrise = document.querySelector(".sunrise-time");
-    sunrise.textContent = weatherData.general.sunriseTime;
+    updateElement(".wind-speed-icon", "src", windSpeedPath);
+    updateElement(".wind-speed-value", "textContent", weatherData.current.windSpeed);
 
-    const sunsetIcon = document.querySelector(".sunset-icon");
-    sunsetIcon.src = sunsetIconPath;
-    const sunset = document.querySelector(".sunset-time");
-    sunset.textContent = weatherData.general.sunsetTime;
+    updateElement(".sunrise-icon", "src", sunriseIconPath);
+    updateElement(".sunrise-time", "textContent", weatherData.general.sunriseTime);
+
+    updateElement(".sunset-icon", "src", sunsetIconPath);
+    updateElement(".sunset-time", "textContent", weatherData.general.sunsetTime);
 }
 
 function updateWeeklyForecast(weatherData) {
