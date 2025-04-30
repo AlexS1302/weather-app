@@ -18,6 +18,6 @@ function appendToContainer(parent, element) {
     if (container) container.appendChild(element);
 }
 
-
+export {createElement, appendToContainer}
 
 

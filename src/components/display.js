@@ -16,7 +16,6 @@ async function updateWeatherInfo() {
 }
 
 async function updateTodayForecast(weatherData) {
-
     // Card header
     const location = document.querySelector(".location");
     location.textContent = weatherData.general.address;
@@ -69,6 +68,9 @@ async function updateTodayForecast(weatherData) {
     sunset.textContent = weatherData.general.sunsetTime;
 }
 
+function updateWeeklyForecast(weatherData) {
+    
+}
 
 // Event Listeners
 const searchBtn = document.getElementById("search-btn");
@@ -95,11 +97,5 @@ async function setWeatherIcon(iconName) {
     const iconPromise = await import(`../assets/icons/${iconName}.svg`);
     return iconPromise.default;
 }
-
-function setTime() {
-    
-    
-}
-
 
 export {updateWeatherInfo};

@@ -72,8 +72,19 @@ function processData(weatherObj) {
             sunrise: weatherObj.currentConditions.sunrise,
             sunset: weatherObj.currentConditions.sunset,
         },
+        nextDays: [],
     };
 
+    // Get daily forecast for the next 6 days
+    for (let i = 1; i < 7; i++) { // Skip current day
+        const newObj = {
+            day: format(weatherObj.days[i].datetime, "iiii"),
+            temperature: weatherObj.days[i].temp,
+            condition: weatherObj.days[i]. conditions,
+        };
+        requiredData.nextDays.push(newObj);
+    }
+    console.log("Next days: ", requiredData.nextDays);
     return requiredData;
 }
 
