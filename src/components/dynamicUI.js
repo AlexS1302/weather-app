@@ -35,14 +35,13 @@ async function updateTodayForecast(weatherData) {
 }
 
 async function updateWeeklyForecast(weatherData) {
-    const forecastContainer = document.querySelector(".weekly-forecast");
+    const weeklyContainer = document.querySelector(".weekly-forecast");
 
-    forecastContainer.innerHTML = "";
+    weeklyContainer.innerHTML = "";
 
     const nextDays = weatherData.nextDays;
     for (const item of nextDays) {
         const iconPath = await setWeatherIcon(item.icon);
-        console.log(iconPath);
 
         const itemContainer = createElement("div", ["weekly-item-container"]);
         const icon = createElement("img", ["weekly-forecast-icon"], "", {}, { src: iconPath });
@@ -57,7 +56,7 @@ async function updateWeeklyForecast(weatherData) {
         appendToContainer(itemContainer, feelsLike);
         appendToContainer(itemContainer, condition);
 
-        appendToContainer(forecastContainer, itemContainer);
+        appendToContainer(weeklyContainer, itemContainer);
     };
 }
 
