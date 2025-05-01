@@ -34,24 +34,31 @@ async function updateTodayForecast(weatherData) {
     updateElement(".sunset-time", "textContent", weatherData.general.sunsetTime);
 }
 
-function updateWeeklyForecast(weatherData) {
+async function updateWeeklyForecast(weatherData) {
     const forecastContainer = document.querySelector(".weekly-forecast");
 
     forecastContainer.innerHTML = "";
 
     const nextDays = weatherData.nextDays;
-    nextDays.forEach(item => {
+    for (const item of nextDays) {
+        const iconPath = await setWeatherIcon(item.icon);
+        console.log(iconPath);
+
         const itemContainer = createElement("div", ["weekly-item-container"]);
+        const icon = createElement("img", ["weekly-forecast-icon"], "", {}, { src: iconPath });
         const day = createElement("h4", ["weekly-forecast-day"], item.day);
-        const temp = createElement("div", ["weekly-forecast-temp"], item.temperature);
+        const temp = createElement("div", ["weekly-forecast-temp"], item.temperature + "°");
+        const feelsLike = createElement("div", ["weekly-forecast-feels-like"], "Feels like: " + item.feelsLike + "°");
         const condition = createElement("div", ["weekly-forecast-condition"], item.condition);
 
         appendToContainer(itemContainer, day);
+        appendToContainer(itemContainer, icon);
         appendToContainer(itemContainer, temp);
+        appendToContainer(itemContainer, feelsLike);
         appendToContainer(itemContainer, condition);
 
         appendToContainer(forecastContainer, itemContainer);
-    });
+    };
 }
 
 // Helper Functions
@@ -61,13 +68,21 @@ async function setWeatherIcon(iconName) {
 }
 
 // Create an element
-function createElement(tag, classes = [], text = "", datasets = {}) {
+function createElement(tag, classes = [], text = "", datasets = {}, attributes = {}) {
     const element = document.createElement(tag);
     element.classList.add(...classes);
     element.textContent = text;
 
     for (const [key, value] of Object.entries(datasets)) {
         element.dataset[key] = value
+    }
+
+    for (const [attr, value] of Object.entries(attributes)) {
+        if (attr in element) {
+            element[attr] = value;
+        } else {
+            element.setAttribute(attr, value);
+        }
     }
 
     return element;

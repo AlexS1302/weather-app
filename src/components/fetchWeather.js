@@ -79,7 +79,9 @@ function processData(weatherObj) {
     for (let i = 1; i < 7; i++) { // Skip current day
         const newObj = {
             day: format(weatherObj.days[i].datetime, "iiii"),
+            icon: weatherObj.days[i].icon,
             temperature: weatherObj.days[i].temp,
+            feelsLike: weatherObj.days[i].feelslike,
             condition: weatherObj.days[i]. conditions,
         };
         requiredData.nextDays.push(newObj);
