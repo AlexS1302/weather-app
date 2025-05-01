@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div class="grid-container">
+        <header>
+            <h1>Weather Forecast</h1>
+            <div class="search-location">
+                <label for="search">
+                    <input type="text" id="search" placeholder="Location:">
+                </label>
+                <button type="submit" id="search-btn">Search</button>
+            </div>
+            <div class="dropdown-menu">
+                <label for="units">Units:</label>
+                <select id="units" name="unit">
+                    <option value="uk">United Kingdom</option>
+                    <option value="us">United States</option>
+                    <option value="metric">Metric</option>
+                    <option value="base">Base</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="today-forecast">
+            <div class="card-header">
+                <div class="location"></div>
+                <div class="date-time-container">
+                    <div class="date"></div>
+                    <div class="time"></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="weather-icon-container">
+                    <img alt="weather" class="weather-icon"></img>
+                </div>
+                <div class="weather-details">
+                    <div class="temperature"></div>
+                    <div class="feels-like"></div>
+                    <div class="weather-condition"></div>
+                </div>
+                <div class="weather-other">
+                    <div class="humidity">
+                        <img alt="humidity" class="humidity-icon"></img>
+                        <div class="humidity-value"></div>
+                    </div>
+                    <div class="wind-speed">
+                        <img alt="wind-speed" class="wind-speed-icon"></img>
+                        <div class="wind-speed-value"></div>
+                        <div class="wind-speed-unit"></div>
+                    </div>
+                    <div class="precipitation">
+                        <img alt="precipitation" class="precipitation-icon"></img>
+                        <div class="precipitation-value"></div>
+                    </div>
+                    <div class="sunrise">
+                        <img alt="sunrise time" class="sunrise-icon"></img>
+                        <div class="sunrise-time"></div>
+                    </div>
+                    <div class="sunset">
+                        <img alt="sunset time" class="sunset-icon"></img>
+                        <div class="sunset-time"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weekly-forecast"></div>
+    </div>
+    
+    
+</body>
+</html>
