@@ -111,7 +111,8 @@ header h1 {
 }
 
 .weather-condition {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    text-align: center;
 }
 
 .card-header {
@@ -143,7 +144,7 @@ header h1 {
 }
 
 .feels-like {
-    padding-top: 0.5rem;
+    padding: 0.5rem 0;
     font-size: 1.2rem;
     opacity: 0.8;
 }
@@ -157,6 +158,7 @@ header h1 {
     flex-direction: column;
     align-items: center;
     padding-right: 3rem;
+    font-weight: 400;
 }
 
 .wind-speed-icon, .humidity-icon, .precipitation-icon, .sunrise-icon, .sunset-icon {
@@ -171,7 +173,7 @@ header h1 {
     white-space: pre;
 }
 
-/* Others */
+/* Weekly Forecast */
 
 .weekly-forecast {
     grid-area: weekly-forecast;
@@ -188,7 +190,7 @@ header h1 {
 }
 
 .weekly-forecast-day {
-    padding-top: 1rem;
+    font-size: 1.2rem;
 }
 
 .weekly-forecast-icon {
@@ -197,7 +199,7 @@ header h1 {
 }
 
 .weekly-forecast-temp {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #25aae1;
     padding-bottom: 0.5rem;
 }
@@ -205,8 +207,81 @@ header h1 {
 .weekly-forecast-feels-like {
     opacity: 0.8;
     padding-bottom: 0.5rem;
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 .weekly-forecast-condition {
     font-weight: 500;
+    text-align: center;
+    font-size: 1.4rem;
+    padding-inline: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Media Queries */
+@media (min-width: 900px) and (max-width: 1200px) {
+    .weekly-forecast {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;  
+    }
+}
+
+@media (min-width: 470px) and (max-width: 900px) {
+    .weekly-forecast {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (width <= 470px) {
+    /* Daily */
+    header {
+        padding-right: 1rem; 
+    }
+
+    #search {
+        margin-right: 5px;
+    }
+
+    .dropdown-menu {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .card-header {
+        padding: 1rem;
+    }
+
+    .date {
+        text-align: center;
+    }
+
+    .card-body {
+        flex-wrap: wrap;
+        padding: 0;
+        gap: 10px;
+    }
+
+     .weather-icon {
+        height: 200px;
+        width: 200px;
+    }
+
+    .weather-details {
+        padding-right: 0;
+    }
+
+    .weather-other {
+        display: flex;
+        padding-right: 1rem;
+        gap: 5px;
+    }
+
+    /* Weekly */
+    .weekly-forecast {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;  
+    }
+
 }
