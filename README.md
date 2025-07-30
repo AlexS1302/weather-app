@@ -24,6 +24,6 @@ You can view this project [here](https://alexs1302.github.io/weather-app/)!
 ## Credits
 The weather icons are provided by [Meteocons](https://github.com/basmilius/weather-icons), under the __MIT License__.
 
-The license file is included in the ```assets/icons``` directory.
+The license file is included in the ```src/assets/icons``` directory.
 
-This Project was created as part of The Odin Project's curriculum, a free online resource for learning web development.
+This project was created as part of The Odin Project's curriculum, a free online resource for learning web development.
