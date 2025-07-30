@@ -9,6 +9,7 @@ A simple, dynamic weather app that fetches real-time data using the Visual Cross
 * __Weekly Forecast__: Check the temperature and weather conditions for the next seven days.
 * __Unit Selection__: Choose between UK, US, Metric and Base units to view weather details in your preferred format.
 * __Dynamic Weather Icons__: Icons update based on real-time weather conditions.
+* __Responsive Design__: Optimized for seamless use across desktops, tablets, and mobile devices.
 
 ## Technologies Used
 * HTML5
@@ -20,6 +21,9 @@ A simple, dynamic weather app that fetches real-time data using the Visual Cross
 
 ## Project Link
 You can view this project [here](https://alexs1302.github.io/weather-app/)!
+
+## Project Interface (Screenshot)
+![Screenshot of the Project](./src/assets/images/weather-app-preview.png)
 
 ## Credits
 The weather icons are provided by [Meteocons](https://github.com/basmilius/weather-icons), under the __MIT License__.
